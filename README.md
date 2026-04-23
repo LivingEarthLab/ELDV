@@ -26,3 +26,7 @@ This work is part of an iterative effort involving expert feedback.
 > This first questionnaire is intended to help validate the proposed criteria and classification, while also incorporating expert feedback. It represents an initial step in a broader, iterative process aimed at refining, consolidating, and ultimately operationalizing a robust set of candidate Essential Variables for Land Degradation (EVs-LD).
 >
 ![First Essential Land Degardation Varaibles set list classed on domains](images/Sunburst_Framework_ELDV.png)
+![First Essential Land Degardation Varaibles set list classed on domains](ELDV_1.png)
+![First Essential Land Degardation Varaibles set list classed on domains](ELDV_2.png)
+![First Essential Land Degardation Varaibles set list classed on domains](ELDV_3.png)
+
