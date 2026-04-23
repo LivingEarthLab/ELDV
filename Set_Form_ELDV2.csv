@@ -1,0 +1,72 @@
+Variables,Framework,Definition
+Rainfall,MEDALUS,Amount of atmospheric water (rain + snow)/surface*time
+Wind speed,MEDALUS,Velocity of wind 10 meter above the surface (m/s)
+Rainfall erosivity,MEDALUS,Aibility of rainfall to cause erosion/Kinetical energy of rainfall impact (MJ mm/ha h yr)
+Water erosion,EUSO,Detachment/transport of soil's particule caused by kinetic energy of water (t/ha)
+Wind erosion,EUSO,Detachment/transport of soil's particule caused by kinetic energy of wind (t/ha)
+Tillage erosion,EUSO,Transport mechanic of soil downhill by agricutlural tools (t/ha)
+Harvest erosion,EUSO,Soil remove from the field during harvest (t/ha)
+Soil erodibility,MEDALUS,Soil intrinsically susceptibility to erosion (t ha h ha-1 MJ-1 mm-1)
+Soil erosion rate,SML,Speed at which to soil is removed from land surface by erosion processes (t/ha*time)
+Soil alkalinity/sodicity,MEDALUS,pH of soil
+Soil salinity/Salinization,MEDALUS,Electrical Conductivity of saturated soil Extract (ECe) at 25°C (dS/m)
+Secondary salinization,EUSO,Human-induced accumulation of soluble salts in soil and water based on coverage in irrigation equipment (%)
+Acidification,SML,Increase of soil pH (%)
+Arsenic concentration/excess,EUSO,[As] in mg/kg
+Copper concentration/excess,EUSO,[Cu] in mg/kg
+Mercury concentration/excess,EUSO,[Hg] in mg/kg
+Zinc concentration/excess,EUSO,[Zn] in mg/kg
+Cadmium concentration/excess,EUSO,[Cd] in mg/kg
+Nitrogen surplus,EUSO,[N] in mg/kg
+Total nitrogen in soil,SML,Nitrogen in soil (mg/kg)
+Soil organic carbon to nitrogen ratio,SML,"Mass proportion of carbon to nitrogen in soil, as a proxy of soil health (unitless)"
+Phosphorus deficiency,EUSO,[P] mg/kg
+Phosphorus excess,EUSO,[P] mg/kg
+Distance to maximum SOC level,EUSO,"Distance between the current level of SOC and a ""maximum"" level of soil organic carbon content achievable in the medium-long term (%)"
+Changes in soil organic carbon (SOC),SDG15.3.1,Mean net change in SOC are computed between baseline and target/reporting period (%)
+Soil organic carbon content,SML,"concentration or percentage of carbon within a soil sample (e.g., %)"
+Soil organic carbon stock,SML,represents the total mass of carbon in a specific area and depth (t/ha)
+Saturated hydraulic conductivity,SML,"Measures a soil's ability to transmit water when all pores are filled (Ksat, cm/day)"
+Extractable phosphorus,SML,Soil phosphorus available for plant growth (mg/kg)
+Concentration of heavy metals,SML,"As, Sb, Cd, Co, Cr (total), Cu, Hg, Pb, Ni, Tl, V, Zn (mg/kg)"
+Concentration of a selection of organic contaminants ,SML,https://eur-lex.europa.eu/eli/dir/2025/2360/oj
+Concentration of eternal poluant (PFAS),SML,[PFAS-21] or [PFAS-43] mg/kg
+Concentration of selected active substances in pesticides,SML,https://eur-lex.europa.eu/eli/dir/2025/2360/oj
+Soil texture,MEDALUS,"Repartition of mineral particules (< 2mm) in %. Usually defined by the relative proportion of clay, silt and sand"
+Rock fragment,MEDALUS,Rock fragment (> 2mm) content in terms of % of the total soil volume
+Parent material,MEDALUS,"Underlying geological material (bed rock, mineral deposit or organic matter) forming soil horizon (categorical)"
+Soil depth,MEDALUS,Distance from the topographic surface to the parent material (cm to m)
+Slope,MEDALUS,Steepness change at different point (% or °)
+Slope aspect,MEDALUS,Compact direction that hillside or terrain surface faces (categoric or °)
+Plan curvature,MEDALUS,lateral curvature (perpandicular to the direction of max slope) change value across the landscape (°)//Concave vs convex
+Profile curvature,MEDALUS,lateral curvature (parallel to the direction of max slope) change value across the landscape (°)//accelation/deceleration of flux
+Drainage density,MEDALUS,total length of stream channels within a bassin divided by the total area of that bassin (km/km2)
+Soil drainage,MEDALUS,"Rate and extent of water mouvement in the soil, including movement across the surface and downward through soil (m/s by surface)"
+Water retention,SML,"Capacity of soil to absorbe and store water for a given period and matrix pressure potential, making it available for plant and microorganisms (%)"
+Water infiltration,SML,Rate of the soil's water (rain or irrigation) absorption capacity (mm/h)
+Groundwater depth,MEDALUS,Depth at which underground water is found (m)
+Soil packing density,EUSO,Compactness of the soil/soil bulk density (kg/m3)
+Bulk density in subsoil ,SML,Mass of the many particles of the material divided by the bulk volume (g/cm3)
+Bulk density in topsoil ,SML,Mass of the many particles of the material divided by the bulk volume (g/cm3)
+Air capacity ,SML,Fraction of total volume of soil occupied with air when the soil is at -10kPa // volume of air in the soil after drainage between 0 and -10kPa (%)
+Fire risk,MEDALUS,Sensitivity to fires of the different land cover classes (based on vegetation type) vs. aibility to recover after wildefires (categorical)
+Post-fire recovery,EUSO,Based on recovery rate (befor vs after fire event). Uses burned area delineation and fraction of green vegetation cover (unitless).
+Land productivity (trajectory),SDG15.3.1,Long term trend of vegetation productivity over time (unitless)
+Land productivity (performance),SDG15.3.1,Productivity performance of a pixel relative to other pixel with the same ecological conditions (unitless)
+Land productivity (state),SDG15.3.1,Change in productivity levels between a recent period and the reference period  (unitless)
+Net primary production,SDG15.3.1,Net amount of biomass produce by plants after substracting plant respiration (g C m?2 yr?1)
+Gross Primary Production,SDG15.3.1,Gross amount of biomass produce by plants (g C m?2 yr?1)
+Agricultural intensity,MEDALUS,"Degree of anthropic intervention, mainly through agricultural activity, according to the land use/land cover classes (categorical)"
+Policy enforcement,MEDALUS,Degree of anthropic intervention to improve restrictive environmental conditions and to ensure land protection against various degradation processes. Either based on land use/land cover classes (categorical) or on  coverage of protected area (%)
+Population density,MEDALUS,Ratio between total population and surface area (people/km2)
+Population density change,MEDALUS,Change between the t1 ratio (total population and surface area) and t0 (%)
+Total sealed soils and removed soils ,SML,"Total area of ground covered with impermeable, artificial materials like concrete, asphalts, stone, or removed (% or km2)"
+De-sealing,SML,"Remove of permanent covering of the ground with impermeable, artificial materials like concrete, asphalt, or stone, commonly for construction and infrastructure (categorical)"
+Total settlement area,SML,"permanent covering of the ground with impermeable, artificial materials like concrete, asphalt, or stone, commonly for construction and infrastructure (categorical)"
+Changes in land cover,SDG15.3.1/MEDALUS/SML,"Change in the type of land cover which impacts the biological or economic productivity and complextiy of the land, based on matrix (categorical)"
+Water use efficiency,SDG15.3.1,The ratio of plant biomass to water lost by transpiration (kg*mm-1*day-1)
+Land fragmentation,SML,"Size and distribution of habitat patches providing information on fragmentation, mainly due to human activity (metrics)"
+Peatland degradation,EUSO,Peatlands that are likely to be degraded due to agriculture-related pressures (categorical)
+Soil biodiversity and biological activity,SML,DNA metabarcoding for fungi and bacteria
+Evapotranspiration (actual) - AET,MEDALUS/SDG15.3.1,actual amount of water transferred from the surface to the atmosphere through evaporation and plant transpiration (mm/time)
+Evapotranspiration (potential) - ETP,MEDALUS/SDG15.3.1,max amount of water that could be transferred from the surface to the atmosphere through evaporation and plant transpiration if water is fully accessible (mm/time)
