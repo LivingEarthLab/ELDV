@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Essential Land Degradation Variables</title>
+
+<style>
+body{
+  font-family:Arial,sans-serif;
+  margin:40px;
+  background:#f7f7f7;
+  color:#333
+}
+
+h1{
+  color:#2f5d50
+}
+
+.intro{
+  max-width:950px;
+  line-height:1.6;
+  margin-bottom:25px
+}
+
+.controls{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:15px
+}
+
+input,select{
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  font-size:14px
+}
+
+input{
+  width:320px
+}
+
+#count{
+  margin:10px 0 15px;
+  color:#666
+}
+
+.table-wrapper{
+  overflow-x:auto
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  min-width:900px
+}
+
+th{
+  background:#2f5d50;
+  color:white;
+  padding:12px;
+  text-align:left;
+  position:sticky;
+  top:0
+}
+
+td{
+  padding:12px;
+  border-bottom:1px solid #ddd;
+  vertical-align:top;
+  line-height:1.4
+}
+
+tr:hover{
+  background:#f1f1f1
+}
+</style>
+</head>
+
+<body>
+
+<h1> Essential Land Degradation Variables</h1>
+
+<div class="intro">
+<p>
+This page presents the current draft list of Essential Variables
+for land degradation and desertification monitoring and assessment.
+</p>
+
+<p>
+The variables are organised by thematic domain and linked to the
+frameworks or global initiatives in which they are used.
+</p>
+</div>
+
+<div class="controls">
+
+<input
+  id="search"
+  type="text"
+  placeholder="Search variable or definition..."
+>
+
+<select id="domain">
+<option value="">All domains</option>
+</select>
+
+<select id="framework">
+<option value="">All frameworks / initiatives</option>
+</select>
+
+</div>
+
+<div id="count"></div>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+<tr>
+<th>Variable</th>
+<th>Definition</th>
+<th>Framework / Global Initiative</th>
+<th>Domain</th>
+</tr>
+</thead>
+
+<tbody id="tbody"></tbody>
+
+</table>
+
+</div>
+
+
+<script>
+
+const raw = `Rainfall|Total amount of atmospheric water precipitating onto a surface over a specific period, encompassing both liquid rain and solid snow|MEDALUS|Climate and atmospheric water
+Wind speed|Velocity of wind 10m above surface i.e., rate of air movement relative to earth's surface|MEDALUS|Climate and atmospheric water
+Rainfall erosivity|Ability of rainfall to cause erosion/Kinetical energy of rainfall impact|MEDALUS|Climate and atmospheric water
+Drought resistance|Ability of a soil-plant system to maintain its function, structure, and productivity during periods of water scarcity.|MEDALUS|Soil biology and ecosystem function
+Water erosion|Detachment, transport and deposition of soil's particule caused by kinetic energy of falling raindrops and the shear stress of surface runoff.|EUSO|Soil physics
+Wind erosion|Detachment, transport and deposition of (fine) soil's particule caused by kinetic energy of wind.|EUSO|Soil physics
+Tillage erosion|Transport mechanic of soil downhill by agricutlural tools|EUSO|Soil physics
+Harvest erosion|soil particles physically adhere to harvested crops (roots, tubers, bulbs, or low-growing vegetables) and are removed from the field along with the yield|EUSO|Soil physics
+Soil erodibility|Soil intrinsically susceptibility to detachment and transport by erosive forces, i.e. the soil's side of the erosion, independent of the climate or topography.|MEDALUS|Soil physics
+Soil erosion rate|Speed at which to soil is removed from land surface by erosive agents (water, wind, tillage, or harvest)|SML; EUSO|Soil physics
+Soil salinity|Concentration of soluble salts (primarily sodium, calcium, magnesium, chlorides, sulfates, and carbonates) dissolved in the soil water|MEDALUS; SML; EUSO|Soil chemistry and contamination
+Secondary salinization|human-induced accumulation of soluble salts in the soil profile and groundwater, distinct from natural (primary) salinization which occurs over geological timescales.|EUSO|Socio-economic and management
+Soil acidity/alkalinity|the concentration of hydrogen ions (H+) or hydroxyl ions (OH-) in the soil solution|MEDALUS; SML|Soil chemistry and contamination
+Arsenic concentration|Concentration of arsenic in the soil|SML; EUSO|Soil chemistry and contamination
+Copper concentration|Concentration of copper in the soil|SML; EUSO|Soil chemistry and contamination
+Mercury concentration|Concentration of mercury in the soil|SML; EUSO|Soil chemistry and contamination
+Zinc concentration|Concentration of zinc in the soil|SML; EUSO|Soil chemistry and contamination
+Cadmium concentration|Concentration of cadmium in the soil|SML; EUSO|Soil chemistry and contamination
+Total nitrogen in soil|Sum of all nitrogen forms present in the soil, encompassing both organic and inorganic fractions|MEDALUS; SML; EUSO|Soil chemistry and contamination
+Total phosphorus|sum of all phosphorus forms present in the soil, encompassing both organic and inorganic fractions|MEDALUS; SML; EUSO|Soil chemistry and contamination
+Soil organic carbon content|concentration of carbon stored within the soil organic matter, which consists of decomposing plant and animal residues, living microbial biomass, and stable humus.|MEDALUS; SML; EUSO; SDG 15.3.1|Soil biology and ecosystem function
+Concentration of heavy metals|total or bioavailable abundance of specific metallic elements in the soil that possess high density and potential toxicity to living organisms even at low concentrations.|SML; EUSO|Soil chemistry and contamination
+[PFAS-21] or [PFAS-43]|total or bioavailable abundance of eternal polluants (PFAS-21 or PFAS-43) in the soil that possess potential toxicity to living organisms even at low concentrations.|SML|Soil chemistry and contamination
+Soil texture|relative proportion of mineral particles of different sizes within the soil matrix, specifically those smaller than 2 mm.|MEDALUS|Soil physics
+Rock fragment|Content of mineral particles within the soil matrix that are larger than 2 mm in diameter (gravel, cobbles, stones, and boulders)|MEDALUS|Soil physics
+Parent material|Underlying geological material (bedrock, unconsolidated sediment, volcanic ash, or organic deposits) from which the soil horizons develop.|MEDALUS|Geomorphology and terrain
+Soil depth|Distance from the topographic surface to the limiting layer that restricts root growth and water movement.|MEDALUS|Geomorphology and terrain
+Slope|steepness or gradient of the land surface, defined as the rate of change in elevation|MEDALUS|Geomorphology and terrain
+(Slope) Aspect|Compact direction that hillside or terrain surface faces.|MEDALUS|Geomorphology and terrain
+Plan curvature|Geometry (concave or convex) of the land surface along a contour line perpendicular to the direction of maximum slope.|MEDALUS|Geomorphology and terrain
+Profile curvature|geometry of the land surface along the line of steepest descent (parallel to the direction of maximum slope)|MEDALUS|Geomorphology and terrain
+Drainage density|Total length of channels per unit area of a drainage basin.|MEDALUS|Geomorphology and terrain
+Soil drainage|Rate and extent of water movement through the soil profile, encompassing both vertical percolation and lateral subsurface flow.|MEDALUS|Soil physics
+Water retention|Capacity of soil to absorb, store, and release water against the force of gravity, making it available for plant uptake and microorganisms activities.|SML|Soil physics
+Water infiltration|Rate at which soil absorbs water (rain or irrigation).|SML|Soil physics
+Groundwater depth|distance from the land surface down to the upper level of the saturated zone where the soil pores are completely filled with water.|MEDALUS|Geomorphology and terrain
+Soil packing density|compactness of the soil, defined as the mass of dry soil particles divided by the total bulk volume (including both solid particles and pore spaces)|SML; EUSO|Soil physics
+Bulk density in subsoil|The mass of dry soil per unit total volume in the deeper soil layers (typically >30 cm)|MEDALUS; SML; EUSO|Soil physics
+Bulk density in topsoil|The mass of dry soil per unit total volume in the upper soil layer (typically 0–30 cm)|MEDALUS; SML; EUSO|Soil physics
+Air capacity|Volume fraction of the soil that is occupied by air after the soil has been saturated and allowed to drain under a specific low suction pressure.|SML; EUSO|Soil physics
+Fire risk|susceptibility of a landscape to ignition and the subsequent intensity of fire, combined with the ecosystem's ability to recover.|MEDALUS|Land cover and surface state
+Post-fire recovery|rate and extent to which an ecosystem regenerates its vegetation cover, biological activity, and soil functionality following a wildfire event.|EUSO|Land cover and surface state
+Vegetation cover|The proportion of the land surface covered by vegetation. It includes trees, shrubs, grasses, and crops.|MEDALUS|Land cover and surface state
+Land productivity (trajectory)|Long term trend of vegetation productivity over time|SDG 15.3.1|Land cover and surface state
+Land productivity (performance)|Relative measure of the vegetation productivity of a spatial unit given its natural environment.|SDG 15.3.1|Land cover and surface state
+Land productivity (state)|absolute change in productivity levels between a specific recent period and a defined reference period (baseline).|SDG 15.3.1|Land cover and surface state
+Net primary production|Net amount of biomass produce by plants after substracting the energy used for plant respiration.|SDG 15.3.1|Land cover and surface state
+Gross Primary Production|Total carbon fixed by plants through photosynthesis, befor acounting for any energy losses.|SDG 15.3.1|Land cover and surface state
+Agricultural intensity|Degree of human intervention and management pressure applied to land for agricultural production|MEDALUS|Socio-economic and management
+Policy enforcement|Degree of anthropic intervention to improve restrictive environmental conditions and to ensure land protection against various degradation processes.|MEDALUS|Socio-economic and management
+Population density|Ratio between total population and surface area.|MEDALUS|Socio-economic and management
+Population density change|rate and magnitude of variation in human population concentration over a specific time period.|MEDALUS|Socio-economic and management
+Total sealed soils and removed soils|permanent covering of the ground with impermeable, artificial materials like concrete, asphalt, or stone, commonly for construction and infrastructure, or where the soil profile has been physically excavated and removed|EUSO; SML|Socio-economic and management
+De-sealing|Remove of permanent covering of the ground with impermeable, artificial materials like concrete, asphalt, or stone, commonly for construction and infrastructure (km2, % of surface or categorical)|SML|Socio-economic and management
+Changes in land cover|Transition from one land cover class to another over time|SDG 15.3.1; SML|Socio-economic and management
+Water use efficiency|Ratio of biomass produced (or carbon assimilated) to the amount of water lost by the plant through transpiration|SDG 15.3.1|Land cover and surface state
+Land fragmentation|Size and distribution of habitat patches|SML|Soil biology and ecosystem function
+Peatland degradation|Peatlands that are likely to be degraded (deterioration of the physical, chemical, and biological functions) due to agriculture-related pressures|EUSO|Socio-economic and management
+Evapotranspiration (actual) - AET|actual amount of water transferred from the surface to the atmosphere through evaporation and plant transpiration|SDG 15.3.1|Climate and atmospheric water
+Evapotranspiration (potential) - ETP|max amount of water that could be transferred from the surface to the atmosphere through evaporation and plant transpiration if water is fully accessible|SDG 15.3.1|Climate and atmospheric water
+Soil moisutre|quantity of water held within the soil pore spaces at a specific point in time|EWV; EAV; ECV|Climate and atmospheric water
+Land surface temperature|Radiative skin temperature of the land, derived from solar radiation, which measures the thermal radiance emitted from the land surface|EAV; ECV|Climate and atmospheric water
+Albedo|Fraction of incident solar radiation that is reflected by a surface back into the atmoshpere.|ECV|Climate and atmospheric water
+Species richness|The number and identity of species present in the soil at a given location, microorganisms (bacteria, fungi, archaea), meso- and macrofauna (nematodes, springtails, earthworms, mites|EBV; SML; EUSO|Soil biology and ecosystem function
+Soil genetic diversity|Genetic variability within populations of soil organisms (bacteria, fungi, invertebrates, etc.)|EBV; SML; EUSO|Soil biology and ecosystem function
+Decomposition activity|organic matter turnover, The rate at which litter and organic matter are degraded by soil organisms|SML; EUSO|Soil biology and ecosystem function`;
+
+const data = raw.trim().split("\n").map(line => {
+
+  const [variable, definition, framework, domain] =
+    line.split("|");
+
+  return {
+    variable,
+    definition,
+    framework,
+    domain
+  };
+
+});
+
+
+const search =
+  document.getElementById("search");
+
+const domain =
+  document.getElementById("domain");
+
+const framework =
+  document.getElementById("framework");
+
+const tbody =
+  document.getElementById("tbody");
+
+const count =
+  document.getElementById("count");
+
+
+[...new Set(data.map(x => x.domain))]
+.sort()
+.forEach(x => {
+
+  domain.innerHTML +=
+  `<option value="${x}">${x}</option>`;
+
+});
+
+
+[...new Set(
+  data.flatMap(
+    x => x.framework
+    .split(";")
+    .map(y => y.trim())
+  )
+)]
+.sort()
+.forEach(x => {
+
+  framework.innerHTML +=
+  `<option value="${x}">${x}</option>`;
+
+});
+
+
+function esc(s) {
+
+  return s
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#039;");
+
+}
+
+
+function render() {
+
+  const q =
+    search.value.toLowerCase().trim();
+
+
+  const filtered =
+    data.filter(x => {
+
+      const text =
+        (
+          x.variable +
+          " " +
+          x.definition
+        )
+        .toLowerCase();
+
+
+      const okSearch =
+        !q ||
+        text.includes(q);
+
+
+      const okDomain =
+        !domain.value ||
+        x.domain === domain.value;
+
+
+      const okFramework =
+        !framework.value ||
+        x.framework
+          .split(";")
+          .map(y => y.trim())
+          .includes(framework.value);
+
+
+      return (
+        okSearch &&
+        okDomain &&
+        okFramework
+      );
+
+    });
+
+
+  tbody.innerHTML =
+    filtered.map(x => `
+
+      <tr>
+
+        <td>
+        ${esc(x.variable)}
+        </td>
+
+        <td>
+        ${esc(x.definition)}
+        </td>
+
+        <td>
+        ${esc(x.framework)}
+        </td>
+
+        <td>
+        ${esc(x.domain)}
+        </td>
+
+      </tr>
+
+    `).join("");
+
+
+  count.textContent =
+    filtered.length +
+    " variable(s) shown";
+
+}
+
+
+search.addEventListener(
+  "input",
+  render
+);
+
+
+domain.addEventListener(
+  "change",
+  render
+);
+
+
+framework.addEventListener(
+  "change",
+  render
+);
+
+
+render();
+
+</script>
+
+</body>
+</html>
