@@ -24,10 +24,11 @@ This repository supports:
 This work is part of an iterative effort involving expert feedback.
 
 > A first questionnaire aims to help validate the proposed criteria and classification, while also incorporating expert feedback. It represents an initial step in a broader, iterative process aimed at refining, consolidating, and ultimately operationalizing a robust set of candidate **ELV**.
-> A Second questionnaire focuses on structuring the identified variables into sets and refining their selection. It also aims to define a maturity index for each variable.
 >
 ![First Essential Land Degardation Varaibles set list classed on domains](images/Sunburst_Framework_ELDV.png)
 ![First Essential Land Degardation Varaibles set list classed on domains](images/ELDV_1.png)
 ![First Essential Land Degardation Varaibles set list classed on domains](images/ELDV_2.png)
 ![First Essential Land Degardation Varaibles set list classed on domains](images/ELDV_3.png)
 
+> A Second questionnaire focuses on structuring the identified variables into sets and refining their selection. It also aims to define a maturity index for each variable.
+![decision tree](images/inkscaoe_treedecision_Eldv.png)
